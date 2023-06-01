@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:ital,wght@0,200;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./profile.css">
+    <title>Profile</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_left_container">
+                <span>MeShop.</span>
+            </div>
+            <div class="navbar_right_container">
+                <a href="/index.html">Home</a>
+                <a href="/login.html">Login</a>
+                <a href="/signup.html">Signup</a>
+                <a href="/cart.html">My Cart</a>
+                <a href="#">Profile</a>
+            </div>
+        </nav>
+        
+    </header>
+    <section>
+        <form class="my_profile_form form">
+            <h1>My Profile</h1>
+            <input type="text" placeholder="First Name" id ="profile_input_firstname">
+            <input type="text" placeholder="Last Name" id ="profile_input_lastname">
+            <button type="submit"  id ="profile_saveinfo_btn">Save Info</button>
+        </form>
+        <form class="edit_password_form form">
+            <h1>Edit Password</h1>
+            <input type="password" placeholder="Old Password" id="profile_input_old_password">
+            <input type="password" placeholder="New Password" id="profile_input_new_password">
+            <input type="password" placeholder="Confirm New Password" id="profile_input_cofirm_password">
+            <button type="submit" id="profile_change_password_btn">Change Password</button>
+            <button id="user-logout">Logout</button>
+        </form>
+    </section>
+    <script src="./profile.js"></script>
+</body>
+</html>

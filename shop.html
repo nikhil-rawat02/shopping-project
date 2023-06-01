@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:ital,wght@0,200;1,200&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./shop.css">
+    <title>Shop</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_left_container">
+                <span>MeShop.</span>
+            </div>
+            <div class="navbar_right_container">
+                <a href="/index.html">Home</a>
+                <a href="/login.html">Login</a>
+                <a href="/signup.html">Signup</a>
+                <a href="/cart.html">My Cart</a>
+                <a href="/profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+    <section class="shop_section">
+        <aside class="filter_container">
+            <div class="colors_filter">
+                <h2>Colors</h2>
+                <div class="filter">
+                    <input type="checkbox" name="Red">
+                    <label for="Red">Red</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="Blue">
+                    <label for="Blue">Blue</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="Green">
+                    <label for="Green">Green</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="Black">
+                    <label for="Black">Black</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="White">
+                    <label for="White">White</label>
+                </div>
+
+
+            </div>
+            <div class="sizes_filter">
+                <h2>Sizes</h2>
+                <div class="filter">
+                    <input type="checkbox" name="small">
+                    <label for="small">S</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="medium">
+                    <label for="medium">M</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="large">
+                    <label for="large">L</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="extra-large">
+                    <label for="extra-large">XL</label>
+                </div>
+            </div>
+            <div class="rating_filter">
+                <h2>Rating</h2>
+                <input type="range" min="0" max="5" step="1">
+                <div class="range">
+                    <span>0</span>
+                    <span>5</span>
+                </div>
+            </div>
+            <div class="price_filter">
+                <h2>Price Range</h2>
+                <div class="filter">
+                    <input type="checkbox" name="0_25">
+                    <label for="0_25">$0 to $25</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="25_50">
+                    <label for="25_50">$25 to $50</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="50_100">
+                    <label for="50_100">$50 to $100</label>
+                </div>
+                <div class="filter">
+                    <input type="checkbox" name="100_onwards">
+                    <label for="100_onwards">$100 onwards</label>
+                </div>
+            </div>
+            <button id="filter_btn">Apply Filter</button>
+        </aside>
+        <main class="shop_screen">
+            <div class="search-bar">
+                <span class="material-icons search_icon">search</span>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="filter_btns">
+                <button class="filter_btn filter_btn_active" id="no_filter" data-category="no_filter">All</button>
+                <button class="filter_btn" id="mens_filter" data-category="men's clothing">Mens</button>
+                <button class="filter_btn" id="womens_filter" data-category="women's clothing">Womens</button>
+                <button class="filter_btn" id="jewellery_filter" data-category="jewelery">Jewellery</button>
+                <button class="filter_btn" id="electronics_filter" data-category="electronics">Electronics</button>
+            </div>
+            <div class="data_container">
+                <!-- <div class="cloths_container">
+                    <h1>Mens's Clothing</h1>
+                    <div class="cloths_card_container">
+                        <div class="card">
+                            <img src="./card-img.png" alt="">
+                            <div class="product_details">
+                                <div class="price_size">
+                                    <span>$100</span>
+                                    <span>S,M,L</span>
+                                </div>
+                                <div class="cloth_color-container">
+                                    <span>Colors : </span>
+                                    <span class="cloths_color">
+                                        <span id = "yellow"></span>
+                                        <span id = "black"></span>
+                                    </span>
+                                    
+                                </div>
+                                <div class="rating">
+                                    <span>Rating : </span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                    <span class="material-icons">star</span>
+                                </div>
+                            </div>          
+                            <div class="add_to_cart_btn-container">
+                                <button>Add to cart</button>
+                            </div>
+                        </div>            
+                    </div>
+                </div> -->
+            </div>
+        </main>
+    </section>
+    <script src="./shop.js"></script>
+</body>
+
+</html>
