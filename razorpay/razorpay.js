@@ -30,7 +30,7 @@ const btn = document.getElementById("checkout_button_container");
 console.log(btn)
 btn.addEventListener("click", (e)=>{
     console.log("api hitting");
-    rzp1.open();
+    payment.open();
     console.log("payment done");
     e.preventDefault();
 })
