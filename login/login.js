@@ -4,8 +4,8 @@ function updatedUserCartInLocalStorage(email){
         localStorage.setItem("curretUserCart", JSON.stringify({ [email]: [] }));
     }else{
         const userCartObject = JSON.parse(currentUserCart);
-        userCartObject = {...userCartObject, [email]:[]};
-        localStorage.setItem("curretUserCart", JSON.stringify(userCartObject));
+        const newuserCartObject = {...userCartObject, [email]:[]};
+        localStorage.setItem("curretUserCart", JSON.stringify(newuserCartObject));
     }
 }
 function loginToShopPage() {
@@ -38,7 +38,8 @@ document.getElementById("login_form_btn").addEventListener("click", async (e) =>
         .then(() => {
             window.location.href = "https://nikhil-rawat02.github.io/shopping-project/loading.html"
         })
-        .catch(() => {
+        .catch((err) => {
+            console.log(err)
             alert("Wrong Credentials");
         })
 })
