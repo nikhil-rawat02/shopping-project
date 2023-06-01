@@ -1,6 +1,6 @@
 const currentUser = localStorage.getItem("currentUser");
 if (currentUser === null) {
-    window.location.href = "./index.html";
+    window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html";
 }
 const currentUserCart = localStorage.getItem("curretUserCart");
 const cartCardContainer = document.getElementById("cart_card_container");
@@ -70,21 +70,20 @@ function loadCartUI() {
             if (removeItemIndex > -1) {
                 userCart["item"].splice(removeItemIndex, 1);
                 localStorage.setItem("curretUserCart", JSON.stringify(userCart))
-                window.location.href = "./cart.html";
+                window.location.href = "https://nikhil-rawat02.github.io/shopping-project/cart/cart.html";
             }
-
         })
     })
 }
 
-function loadSummary(){
+function loadSummary() {
     const cartItem = JSON.parse(localStorage.getItem("curretUserCart"))
     const listItems = document.getElementsByClassName("list_items")[0];
 
-   const total =  cartItem["item"].reduce((sum ,item, index) => {
+    const total = cartItem["item"].reduce((sum, item, index) => {
         const itemContainer = document.createElement("div");
         itemContainer.className = "item";
-    
+
         const itemName = document.createElement("span")
         itemName.innerText = `${index + 1}.  ${item.title}`
         itemName.innerText = itemName.innerText.substring(0, 10) + "...";
@@ -107,13 +106,13 @@ if (JSON.parse(currentUserCart).item.length > 0) {
 } else {
     // update cart as no item and summary will be 0
     const emptyCart = document.createElement("img")
-    emptyCart.src = './empty-cart.jpg';
+    emptyCart.src = 'https://nikhil-rawat02.github.io/shopping-project/images/empty-cart.jpg';
     emptyCart.style.width = "100%"
     emptyCart.style.height = "470px"
     cartCardContainer.appendChild(emptyCart);
 }
 
 const linkTag = document.querySelectorAll(".navbar_right_container a");
-for(let i =1; i < 3 ; i++){
+for (let i = 1; i < 3; i++) {
     linkTag[i].removeAttribute("href");
 }

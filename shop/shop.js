@@ -26,7 +26,6 @@ function appendDataOnUI() {
 
         const clothsContainer = document.createElement("div");
         clothsContainer.className = "cloths_container";
-        // clothsContainer append pending 
 
         const clothsHeading = document.createElement("h1")
         clothsHeading.innerHTML = `${category}`
@@ -48,11 +47,11 @@ function appendDataOnUI() {
 
             const productTitle = document.createElement("p");
             productTitle.innerText = item.title.substring(0, 50);
-            productTitle.className ="product_title"
+            productTitle.className = "product_title"
             productDescriptionContainer.appendChild(productTitle);
-            
+
             const productDescription = document.createElement("p");
-            productDescription.innerText = item.description.substring(0,eval(75*3));
+            productDescription.innerText = item.description.substring(0, eval(75 * 3));
             productDescription.className = "product_description"
             productDescriptionContainer.appendChild(productDescription);
             card.appendChild(productDescriptionContainer);
@@ -69,7 +68,7 @@ function appendDataOnUI() {
 
             const sizeContainer = document.createElement('span')
             const randomSize = item.size;
-           
+
             randomSize.map((size) => {
                 sizeContainer.innerText = sizeContainer.innerText + "," + size;
             })
@@ -89,7 +88,7 @@ function appendDataOnUI() {
 
             const clothsColorSpan = document.createElement("span");
             clothsColorSpan.className = "cloths_color";
-            
+
             const colors = item.color;
             colors.map((color) => {
                 const colorSpan = document.createElement("span");
@@ -114,7 +113,7 @@ function appendDataOnUI() {
                 starIcon.innerText = "star";
                 ratingContainer.appendChild(starIcon);
             }
-           
+
             if (actualRating < actualRatingCeilValue) {
                 const starIcon = document.createElement("span");
                 starIcon.className = "material-icons"
@@ -139,24 +138,24 @@ function appendDataOnUI() {
             card.appendChild(addToCartButtonContainer);
             clothsCardContainer.appendChild(card);
 
-            productImg.addEventListener("mouseover",()=>{
+            productImg.addEventListener("mouseover", () => {
                 productImg.style.opacity = '0.111';
                 productDescriptionContainer.style.visibility = 'visible';
-               
+
             })
-            productDescriptionContainer.addEventListener("mouseover", () =>{
+            productDescriptionContainer.addEventListener("mouseover", () => {
                 productImg.style.opacity = '0.111';
                 productDescriptionContainer.style.visibility = 'visible';
             })
-            productImg.addEventListener("mouseout",()=>{
+            productImg.addEventListener("mouseout", () => {
                 productImg.style.opacity = '1';
                 productDescriptionContainer.style.visibility = 'hidden';
             })
-            productDescriptionContainer.addEventListener("mouseout", () =>{
+            productDescriptionContainer.addEventListener("mouseout", () => {
                 productImg.style.opacity = '1';
                 productDescriptionContainer.style.visibility = 'hidden';
             })
-            addtoCartButton.addEventListener("click", (e)=> {
+            addtoCartButton.addEventListener("click", (e) => {
                 const btn = e.target;
                 const actualItem = JSON.parse(btn.dataset.product);
                 const userCart = JSON.parse(localStorage.getItem("curretUserCart"));
@@ -193,8 +192,8 @@ async function fetchData() {
         categories = JSON.parse(getCategoriesFromLocal);
     }
     // add radom color and size in categories
-    for(let i in categories){
-        for(let j of categories[i]){
+    for (let i in categories) {
+        for (let j of categories[i]) {
             j["color"] = getRandomColor();
             j["size"] = getRandomSize();
         }
@@ -206,7 +205,7 @@ async function fetchData() {
 // redirecting user if user is not logged in
 const currentUser = localStorage.getItem("currentUser");
 if (currentUser === null) {
-    window.location.href = "./index.html";
+    window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html";
 }
 
 // filter data based on filter buttons
@@ -237,19 +236,17 @@ for (let button = 0; button < filterButtons.length; button++) {
 }
 
 //color filter
-
 const colorFilter = document.querySelectorAll(".colors_filter input");
 
-for(let i  =0; i < colorFilter.length; i++){
-    colorFilter[i].addEventListener("click",()=>{
-        if(colorFilter[i].checked){
-
+for (let i = 0; i < colorFilter.length; i++) {
+    colorFilter[i].addEventListener("click", () => {
+        if (colorFilter[i].checked) {
         }
     })
 }
 
 const linkTag = document.querySelectorAll(".navbar_right_container a");
-for(let i =1; i < 3 ; i++){
+for (let i = 1; i < 3; i++) {
     linkTag[i].removeAttribute("href");
 }
 //load shop screen

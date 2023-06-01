@@ -1,6 +1,4 @@
-
 function loginToShopPage() {
-
     return new Promise((resolve, reject) => {
         const email = document.getElementById("login_form_input_email").value;
         const password = document.getElementById("login_form_input_password").value;
@@ -9,16 +7,12 @@ function loginToShopPage() {
             usersDetails[0].map((user) => {
                 if (user.email === email && user.password === password) {
                     const currentUser = {
-                        "email" : email,
-                        "password" : password,
+                        "email": email,
+                        "password": password,
                     }
                     localStorage.setItem("currentUser", JSON.stringify(currentUser));
-                    localStorage.setItem("curretUserCart", JSON.stringify({"item" : []}));
-
-                    
+                    localStorage.setItem("curretUserCart", JSON.stringify({ "item": [] }));
                     resolve(true);
-                    
-                    
                 }
             })
         }
@@ -28,15 +22,10 @@ function loginToShopPage() {
 
 document.getElementById("login_form_btn").addEventListener("click", async (e) => {
     e.preventDefault();
-
     const userloggedIn = loginToShopPage();
     userloggedIn
         .then(() => {
-            window.location.href = "./loading.html"
-            setTimeout(()=>{
-                console.log('resolve')
-                window.location.href = "./shop.html"
-            },2000)
+            window.location.href = "https://nikhil-rawat02.github.io/shopping-project/loading.html"
         })
         .catch(() => {
             alert("Wrong Credentials");
