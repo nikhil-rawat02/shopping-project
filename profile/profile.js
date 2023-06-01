@@ -1,3 +1,13 @@
+const usersDetails = JSON.parse(localStorage.getItem("user"));
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const firstName = document.getElementById("profile_input_firstname");
+    const lastName = document.getElementById("profile_input_lastname");
+
+    const {fist, last} = (currentUser.name).split(" ")
+    console.log(fist, last);
+
+    firstName.value = fist;
+    lastName.value = last;
 document.getElementById("user-logout").addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("currentUser");
@@ -6,21 +16,14 @@ document.getElementById("user-logout").addEventListener("click", (e) => {
 })
 document.getElementById("profile_saveinfo_btn").addEventListener("click", (e) => {
     e.preventDefault();
-    const firstName = document.getElementById("profile_input_firstname").value;
-    const lastName = document.getElementById("profile_input_lastname").value;
-
-    const usersDetails = JSON.parse(localStorage.getItem("user"));
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-
+    const firstNameValue = firstName.value;
+    const lastNameValue = lastName.value;
     usersDetails[0].map((user) => {
         if (user.email === currentUser.email) {
-            console.log("before => ", user.name)
-            user.name = `${firstName} ${lastName}`
-            console.log("after => ", user.name)
+            user.name = `${firstNameValue} ${lastNameValue}`
         }
     })
     localStorage.setItem("user", JSON.stringify(usersDetails))
-
 })
 
 document.getElementById("profile_change_password_btn").addEventListener("click", (e) => {
@@ -34,9 +37,6 @@ document.getElementById("profile_change_password_btn").addEventListener("click",
         alert("Confirm Password does not match")
         return;
     }
-
-    const usersDetails = JSON.parse(localStorage.getItem("user"));
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
     let isPasswordUpdated = false;
     usersDetails[0].map((user) => {
@@ -55,10 +55,9 @@ document.getElementById("profile_change_password_btn").addEventListener("click",
     }
 })
 
-const currentUser = localStorage.getItem("currentUser");
+const currentUserRaw = localStorage.getItem("currentUser");
 
-if (currentUser === null) {
-    console.log(currentUser)
+if (currentUserRaw === null) {
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html";
 }
 

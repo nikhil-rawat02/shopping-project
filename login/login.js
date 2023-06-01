@@ -1,3 +1,13 @@
+function updatedUserCartInLocalStorage(email){
+    const currentUserCart = localStorage.getItem("curretUserCart");
+    if(currentUserCart === null){
+        localStorage.setItem("curretUserCart", JSON.stringify({ [email]: [] }));
+    }else{
+        const userCartObject = JSON.parse(currentUserCart);
+        userCartObject = {...userCartObject, [email]:[]};
+        localStorage.setItem("curretUserCart", JSON.stringify(userCartObject));
+    }
+}
 function loginToShopPage() {
     return new Promise((resolve, reject) => {
         const email = document.getElementById("login_form_input_email").value;
@@ -7,11 +17,12 @@ function loginToShopPage() {
             usersDetails[0].map((user) => {
                 if (user.email === email && user.password === password) {
                     const currentUser = {
+                        "name" : user.name,
                         "email": email,
                         "password": password,
                     }
                     localStorage.setItem("currentUser", JSON.stringify(currentUser));
-                    localStorage.setItem("curretUserCart", JSON.stringify({ "item": [] }));
+                    updatedUserCartInLocalStorage(email);
                     resolve(true);
                 }
             })

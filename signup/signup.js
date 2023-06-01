@@ -1,3 +1,20 @@
+// duplicate email check
+function checkDuplicateEmail(email) {
+    const allUser = localStorage.getItem("user")
+    if(allUser === null){
+        return false;
+    }else{
+        let returnValue = false;
+        const allUserObject = JSON.parse(allUser);
+        allUserObject[0].map((item)=>{
+            if(item.email === email ){
+                returnValue = true;
+            }
+        })
+        return returnValue;
+    }
+
+}
 function validateAndCreateUser(firstName, lastname, email, password, confirmPassword) {
     if (!firstName || !lastname || !email || !password || !confirmPassword) {
         alert("Filds cannot be empty fill all details!");
@@ -8,14 +25,17 @@ function validateAndCreateUser(firstName, lastname, email, password, confirmPass
     } else if (confirmPassword !== password) {
         alert("Password and confirm Password does not match!");
         return;
+    }else if(checkDuplicateEmail(email)){
+        alert("This email Id already exist");
     }
 
     const newUser = {
-        "name": firstName + lastname,
+        "name": firstName + " " + lastname,
         "email": email,
         "password": password
     }
-    if (localStorage.getItem("user")) {
+    const user = localStorage.getItem("user")
+    if (user !== null) {
         const users = localStorage.getItem("user");
         const usersObj = JSON.parse(users);
         usersObj[0].push(newUser)

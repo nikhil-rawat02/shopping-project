@@ -2,11 +2,13 @@ const currentUser = localStorage.getItem("currentUser");
 if (currentUser === null) {
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html";
 }
+const currentUserObject = JSON.parse(currentUser);
+const currentUserEmail = currentUserObject.email; 
 const currentUserCart = localStorage.getItem("curretUserCart");
 const cartCardContainer = document.getElementById("cart_card_container");
 function loadCartUI() {
-    const userCart = JSON.parse(currentUserCart);
-    userCart["item"].map((item) => {
+    const userCart = (JSON.parse(currentUserCart))[currentUserEmail];
+    userCart.map((item) => {
         const cartCard = document.createElement("div");
         cartCard.className = "cart_card";
 
@@ -58,18 +60,19 @@ function loadCartUI() {
         removeFromCartButton.addEventListener("click", (e) => {
             const btn = e.target;
             const actualItem = JSON.parse(btn.dataset.product);
-            let userCart = JSON.parse(localStorage.getItem("curretUserCart"));
+            let userCart = (JSON.parse(localStorage.getItem("curretUserCart")))[currentUserEmail];
             // if id match remove 
             let removeItemIndex = -1;
-            userCart["item"].map((element, index) => {
+            userCart.map((element, index) => {
                 if (element.id === actualItem.id) {
-                    console.log(index, item);
                     removeItemIndex = index;
                 }
             })
             if (removeItemIndex > -1) {
-                userCart["item"].splice(removeItemIndex, 1);
-                localStorage.setItem("curretUserCart", JSON.stringify(userCart))
+                userCart.splice(removeItemIndex, 1);
+                const currentUserCartObject = JSON.parse(currentUserCart)
+                currentUserCartObject[currentUserEmail] = userCart;
+                localStorage.setItem("curretUserCart", JSON.stringify(currentUserCartObject))
                 window.location.href = "https://nikhil-rawat02.github.io/shopping-project/cart/cart.html";
             }
         })
@@ -103,7 +106,7 @@ function loadSummary() {
 }
 cartCardContainer.innerHTML = '';
 
-if (JSON.parse(currentUserCart).item.length > 0) {
+if (((JSON.parse(currentUserCart))[currentUserEmail]).length > 0) {
     loadCartUI();
     loadSummary();
 } else {

@@ -1,8 +1,9 @@
 const ammout = 0;
 const order_id = Math.ceil(Math.random()*100).toString();
-const userName = "";
-const userEmail = "";
-const userMobile = "";
+const user = JSON.parse(localStorage.getItem("currentUser"))
+const userName = user.name;
+const userEmail = user.userEmail;
+const userMobile = user.userMobile;
 var options = {
     "key": "rzp_test_Ye8PvD7HIK3Mcb", // Enter the Key ID generated from the Dashboard
     "amount": ammout, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
