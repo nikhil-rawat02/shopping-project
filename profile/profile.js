@@ -6,6 +6,7 @@ const lastName = document.getElementById("profile_input_lastname");
 document.getElementById("user-logout").addEventListener("click", (e) => {
     e.preventDefault();
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html"
+    localStorage.removeItem("currentUser");
 })
 document.getElementById("profile_saveinfo_btn").addEventListener("click", (e) => {
     e.preventDefault();
