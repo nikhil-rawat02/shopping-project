@@ -6,7 +6,7 @@ const userMobile = "";
 var options = {
     "key": "rzp_test_Ye8PvD7HIK3Mcb", // Enter the Key ID generated from the Dashboard
     "amount": ammout, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "US dollor",
+    "currency": "INR",
     "name": "MeShop.", //your business name
     "description": "Test Transaction",
     "image": "../images/home.png",

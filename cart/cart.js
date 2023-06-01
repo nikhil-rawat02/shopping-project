@@ -26,9 +26,7 @@ function loadCartUI() {
 
         const titleActualValue = document.createElement("span")
         titleActualValue.innerText = `${item.title}`
-        titleActualValue.style.display = "inline-block";
-        titleActualValue.style.width = "120px";
-        titleActualValue.style.overflow = "hidden";
+        titleActualValue.innerText = titleActualValue.innerText.substring(0, 50)
         cartProductTitle.appendChild(titleActualValue);
 
         cartCardDetails.appendChild(cartProductTitle);
@@ -88,7 +86,10 @@ function loadSummary() {
 
         const itemName = document.createElement("span")
         itemName.innerText = `${index + 1}.  ${item.title}`
-        itemName.innerText = itemName.innerText.substring(0, 10) + "...";
+        // itemName.innerText = itemName.innerText.substring(0, 10) + "...";
+        itemName.style.display = "inline-block";
+        itemName.style.width = "120px";
+        itemName.style.overflow = "hidden";
         itemContainer.appendChild(itemName);
 
         const itemPrice = document.createElement("span")
