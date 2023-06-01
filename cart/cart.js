@@ -26,7 +26,9 @@ function loadCartUI() {
 
         const titleActualValue = document.createElement("span")
         titleActualValue.innerText = `${item.title}`
-        titleActualValue.innerText = titleActualValue.innerText.substring(0, 50)
+        titleActualValue.style.display = "inline-block";
+        titleActualValue.style.width = "120px";
+        titleActualValue.style.overflow = "hidden";
         cartProductTitle.appendChild(titleActualValue);
 
         cartCardDetails.appendChild(cartProductTitle);
@@ -116,3 +118,5 @@ const linkTag = document.querySelectorAll(".navbar_right_container a");
 for (let i = 1; i < 3; i++) {
     linkTag[i].removeAttribute("href");
 }
+
+console.log("object")
