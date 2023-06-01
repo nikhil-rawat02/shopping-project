@@ -81,9 +81,10 @@ function loadCartUI() {
 
 function loadSummary() {
     const cartItem = JSON.parse(localStorage.getItem("curretUserCart"))
+
     const listItems = document.getElementsByClassName("list_items")[0];
 
-    const total = cartItem["item"].reduce((sum, item, index) => {
+    const total = cartItem[currentUserEmail].reduce((sum, item, index) => {
         const itemContainer = document.createElement("div");
         itemContainer.className = "item";
 
