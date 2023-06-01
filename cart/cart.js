@@ -26,7 +26,7 @@ function loadCartUI() {
 
         const titleActualValue = document.createElement("span")
         titleActualValue.innerText = `${item.title}`
-        titleActualValue.innerText = titleActualValue.innerText.substring(0, 20)
+        titleActualValue.innerText = titleActualValue.innerText.substring(0, 50)
         cartProductTitle.appendChild(titleActualValue);
 
         cartCardDetails.appendChild(cartProductTitle);

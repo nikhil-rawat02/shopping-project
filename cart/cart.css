@@ -14,7 +14,9 @@ section>h1 {
     display: flex;
     flex: 0.8;
     margin: 10px;
-    background-color: rgb(202, 201, 201);
+    background-color:whitesmoke;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
     flex-wrap: wrap;
     min-height: 470px;
 }
@@ -24,6 +26,8 @@ section>h1 {
     flex: 0.2;
     margin: 10px;
     background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
     height: 500px;
 }
 
