@@ -1,3 +1,5 @@
+const currentUserObj = JSON.parse(localStorage.getItem("currentUser"));
+
 let categories = {};
 function getRandomSize() {
     const size = ["S", "M", "L", "XL", "XXL"];
@@ -158,8 +160,11 @@ function appendDataOnUI() {
             addtoCartButton.addEventListener("click", (e) => {
                 const btn = e.target;
                 const actualItem = JSON.parse(btn.dataset.product);
-                const userCart = JSON.parse(localStorage.getItem("curretUserCart"));
-                userCart["item"].push(actualItem);
+                const userCartRaw = localStorage.getItem("curretUserCart");
+                const userCart = JSON.parse(userCartRaw);
+                const currentUserCart = userCart[currentUserObj.email];
+                currentUserCart.push(actualItem);
+                userCart[currentUserObj.email] = currentUserCart;
 
                 localStorage.setItem("curretUserCart", JSON.stringify(userCart));
             })

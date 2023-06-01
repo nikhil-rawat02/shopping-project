@@ -1,17 +1,10 @@
 const usersDetails = JSON.parse(localStorage.getItem("user"));
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const firstName = document.getElementById("profile_input_firstname");
-    const lastName = document.getElementById("profile_input_lastname");
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const firstName = document.getElementById("profile_input_firstname");
+const lastName = document.getElementById("profile_input_lastname");
 
-    const {fist, last} = (currentUser.name).split(" ")
-    console.log(fist, last);
-
-    firstName.value = fist;
-    lastName.value = last;
 document.getElementById("user-logout").addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("curretUserCart");
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html"
 })
 document.getElementById("profile_saveinfo_btn").addEventListener("click", (e) => {
