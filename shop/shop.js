@@ -212,7 +212,15 @@ const currentUser = localStorage.getItem("currentUser");
 if (currentUser === null) {
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html";
 }
+// fiter from search bar
 
+function searchCategory(e){
+    e.preventDefault();
+
+
+}
+
+document.getElementById("search_product").addEventListener("keyup" ,(e)=>{searchCategory(e)})
 // filter data based on filter buttons
 const filterButtons = document.getElementsByClassName("filter_btn");
 
@@ -236,13 +244,33 @@ for (let button = 0; button < filterButtons.length; button++) {
                 }
             }
         }
+        console.log()
         appendDataOnUI();
     })
 }
 
-//color filter
+//side filter
+const filterData = (searchString) => {
+    for(let category in categories){
+        const newCategory = categories[category].filter((item)=>{
+            if(item.name.includes(searchString)){
+                return item;
+            }
+        })
+        categories[category] = newCategory;
+    }
+    appendDataOnUI();
+}
 const colorFilter = document.querySelectorAll(".colors_filter input");
-
+const sizeFilter = document.querySelectorAll(".sizes_filter input");
+const priceFilter = document.querySelectorAll(".price_filter input");
+const filterbtns = document.querySelectorAll(".filter_btns buttons");
+for(let i =0; i< colorFilter.length; i++){
+    colorFilter[i].addEventListener("change", (event)=>{
+        event.preventDefault();
+        const searchString = event.target.value;
+        filterData(searchString)});
+}
 for (let i = 0; i < colorFilter.length; i++) {
     colorFilter[i].addEventListener("click", () => {
         if (colorFilter[i].checked) {
