@@ -1,4 +1,4 @@
-const ammout = document.getElementById("total_ammount").innerText;
+const ammount = document.getElementById("total_ammount").innerText;
 let order_id = "";
 const user = JSON.parse(localStorage.getItem("currentUser"))
 const userName = user.name;
@@ -10,7 +10,7 @@ const btn = document.getElementById("checkout_button_container");
 btn.addEventListener("click", async (e) => {
 
     e.preventDefault();
-    if(ammout == 0){
+    if(ammount == 0){
         alert("add item in cart for payment");
     }else{
         const alluserCart = JSON.parse(localStorage.getItem("curretUserCart"));
@@ -36,7 +36,7 @@ btn.addEventListener("click", async (e) => {
       .then(data => {
         var options = {
             "key": "XQKB3kvNAt9bhg9paBc6aqNh", // Enter the Key ID generated from the Dashboard
-            "amount": ammout, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "amount": ammount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
             "name": "meShop", //your business name
             "description": "Test Transaction",

@@ -7,7 +7,8 @@ const currentUserEmail = currentUserObject.email;
 const currentUserCart = localStorage.getItem("curretUserCart");
 const cartCardContainer = document.getElementById("cart_card_container");
 function loadCartUI() {
-    const userCart = (JSON.parse(currentUserCart))[currentUserEmail];
+    const userCart = (JSON.parse(localStorage.getItem("curretUserCart")))[currentUserEmail];
+    console.log(userCart);
     userCart.map((item) => {
         const cartCard = document.createElement("div");
         cartCard.className = "cart_card";
@@ -85,6 +86,7 @@ function loadSummary() {
     const listItems = document.getElementsByClassName("list_items")[0];
 
     const total = cartItem[currentUserEmail].reduce((sum, item, index) => {
+        console.log(item, "load summary", cartItem);
         const itemContainer = document.createElement("div");
         itemContainer.className = "item";
 

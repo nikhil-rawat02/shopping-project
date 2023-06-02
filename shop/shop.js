@@ -24,7 +24,6 @@ function getRandomColor() {
 function appendDataOnUI() {
     const dataContainerDiv = document.getElementsByClassName("data_container")[0];
     dataContainerDiv.innerHTML = "";
-    console.log("after change call")
     for (let category in categories) {
 
         const clothsContainer = document.createElement("div");
@@ -194,7 +193,7 @@ async function fetchData() {
 
         });
     } else {
-        console.log("Data Loaded from local storage")
+        console.log("Loading data from Local Storage...")
         categories = JSON.parse(getCategoriesFromLocal);
     }
     // add radom color and size in categories

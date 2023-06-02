@@ -35,13 +35,11 @@ document.getElementById("profile_change_password_btn").addEventListener("click",
     let isPasswordUpdated = false;
     usersDetails[0].map((user) => {
         if (user.password === oldPassword) {
-            console.log("before => ", user.password)
             user.password = newPassword;
             currentUser.password = newPassword;
             localStorage.setItem("user", JSON.stringify(usersDetails))
             localStorage.setItem("currentUser", JSON.stringify(currentUser));
             isPasswordUpdated = true;
-            console.log("after => ", user.password)
         }
     })
     if (!isPasswordUpdated) {
@@ -55,7 +53,6 @@ if (currentUserRaw === null) {
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html";
 }else{
     const [name, last] = currentUser.name.split(" ");
-    console.log(name, last);
     firstName.value = name;
     firstName.style.fontWeight = "Bold";
     lastName.value = last;
