@@ -31,12 +31,11 @@ var options = {
 var payment = new Razorpay(options);
 const btn = document.getElementById("checkout_button_container");
 
-const currentUser = (JSON.parse(localStorage.getItem("currentUser"))).email;
 btn.addEventListener("click", async (e) => {
 
     // create cart item 
     const alluserCart = JSON.parse(localStorage.getItem("curretUserCart"));
-    alluserCart[currentUser] = [];
+    alluserCart[currentUserEmail] = [];
     localStorage.setItem("curretUserCart", JSON.stringify(alluserCart));
     loadCartUI();
     e.preventDefault();

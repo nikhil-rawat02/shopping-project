@@ -123,5 +123,3 @@ const linkTag = document.querySelectorAll(".navbar_right_container a");
 for (let i = 1; i < 3; i++) {
     linkTag[i].removeAttribute("href");
 }
-
-console.log("object")
