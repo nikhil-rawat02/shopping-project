@@ -20,6 +20,7 @@ btn.addEventListener("click", async (e) => {
         loadSummary();
         document.getElementById("total_ammount").innerText = 0;
         window.location.href = "https://nikhil-rawat02.github.io/shopping-project/cart/cart.html";
+        alert("your order has been placed! Thankyou for shopping with us")
     }
  // create razorpay order
         
