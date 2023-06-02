@@ -53,7 +53,13 @@ const currentUserRaw = localStorage.getItem("currentUser");
 
 if (currentUserRaw === null) {
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/index.html";
+}else{
+    const [name, last] = currentUser.name.split(" ");
+    console.log(name, last);
+    firstName.value = name;
+    lastName.value = last;
 }
+
 
 const linkTag = document.querySelectorAll(".navbar_right_container a");
 for (let i = 1; i < 3; i++) {
