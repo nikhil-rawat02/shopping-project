@@ -264,7 +264,7 @@ for (let button = 0; button < filterButtons.length; button++) {
 const filterData = (searchString) => {
     for(let category in categories){
         const newCategory = categories[category].filter((item)=>{
-            if(item.name.includes(searchString)){
+            if(item.title.includes(searchString)){
                 return item;
             }
         })
