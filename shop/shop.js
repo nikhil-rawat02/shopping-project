@@ -24,6 +24,7 @@ function getRandomColor() {
 function appendDataOnUI() {
     const dataContainerDiv = document.getElementsByClassName("data_container")[0];
     dataContainerDiv.innerHTML = "";
+    console.log("after change call")
     for (let category in categories) {
 
         const clothsContainer = document.createElement("div");
@@ -214,13 +215,23 @@ if (currentUser === null) {
 }
 // fiter from search bar
 
-function searchCategory(e){
-    e.preventDefault();
-
-
+function searchCategory(searchString){
+    for(let category in categories){
+        const newCategory = categories[category].filter((item)=>{
+            if(item.name.includes(searchString)){
+                return item;
+            }
+        })
+        categories[category] = newCategory;
+    }
+    appendDataOnUI();
 }
 
-document.getElementById("search_product").addEventListener("keyup" ,(e)=>{searchCategory(e)})
+document.getElementById("search_product").addEventListener("keyup" ,(event)=>{
+    event.preventDefault();
+    const searchString = event.target.value;
+    filterData(searchString)
+})
 // filter data based on filter buttons
 const filterButtons = document.getElementsByClassName("filter_btn");
 
@@ -244,7 +255,6 @@ for (let button = 0; button < filterButtons.length; button++) {
                 }
             }
         }
-        console.log()
         appendDataOnUI();
     })
 }
@@ -267,9 +277,8 @@ const priceFilter = document.querySelectorAll(".price_filter input");
 const filterbtns = document.querySelectorAll(".filter_btns buttons");
 for(let i =0; i< colorFilter.length; i++){
     colorFilter[i].addEventListener("change", (event)=>{
-        event.preventDefault();
-        const searchString = event.target.value;
-        filterData(searchString)});
+       
+    });
 }
 for (let i = 0; i < colorFilter.length; i++) {
     colorFilter[i].addEventListener("click", () => {

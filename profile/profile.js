@@ -57,7 +57,9 @@ if (currentUserRaw === null) {
     const [name, last] = currentUser.name.split(" ");
     console.log(name, last);
     firstName.value = name;
+    firstName.style.fontWeight = "Bold";
     lastName.value = last;
+    lastName.style.fontWeight = "Bold";
 }
 
 
