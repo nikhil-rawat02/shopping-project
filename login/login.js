@@ -1,10 +1,14 @@
 function updatedUserCartInLocalStorage(email){
     const currentUserCart = localStorage.getItem("curretUserCart");
+    
     if(currentUserCart === null){
         localStorage.setItem("curretUserCart", JSON.stringify({ [email]: [] }));
     }else{
         const userCartObject = JSON.parse(currentUserCart);
-        const newuserCartObject = {...userCartObject, [email]:[]};
+        let newuserCartObject = userCartObject;
+        if(!userCartObject.hasOwnProperty(`${email}`)){
+            newuserCartObject = {...userCartObject, [email]:[]};
+        }
         localStorage.setItem("curretUserCart", JSON.stringify(newuserCartObject));
     }
 }
