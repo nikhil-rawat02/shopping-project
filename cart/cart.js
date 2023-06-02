@@ -8,7 +8,6 @@ const currentUserCart = localStorage.getItem("curretUserCart");
 const cartCardContainer = document.getElementById("cart_card_container");
 function loadCartUI() {
     const userCart = (JSON.parse(localStorage.getItem("curretUserCart")))[currentUserEmail];
-    console.log(userCart);
     userCart.map((item) => {
         const cartCard = document.createElement("div");
         cartCard.className = "cart_card";
@@ -86,13 +85,11 @@ function loadSummary() {
     const listItems = document.getElementsByClassName("list_items")[0];
 
     const total = cartItem[currentUserEmail].reduce((sum, item, index) => {
-        console.log(item, "load summary", cartItem);
         const itemContainer = document.createElement("div");
         itemContainer.className = "item";
 
         const itemName = document.createElement("span")
         itemName.innerText = `${index + 1}.  ${item.title}`
-        // itemName.innerText = itemName.innerText.substring(0, 10) + "...";
         itemName.style.display = "inline-block";
         itemName.style.width = "120px";
         itemName.style.overflow = "hidden";

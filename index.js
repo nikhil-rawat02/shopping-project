@@ -11,4 +11,3 @@ const currentUser = localStorage.getItem("currentUser");
 if (currentUser !== null) {
     window.location.href = "https://nikhil-rawat02.github.io/shopping-project/shop/shop.html";
 }
-console.log("object")
