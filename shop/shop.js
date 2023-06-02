@@ -218,6 +218,7 @@ if (currentUser === null) {
 function searchCategory(searchString){
     for(let category in categories){
         const newCategory = categories[category].filter((item)=>{
+            console.log(item, item.name);
             if(item.name.includes(searchString)){
                 return item;
             }

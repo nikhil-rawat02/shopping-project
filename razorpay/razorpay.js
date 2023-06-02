@@ -13,6 +13,11 @@ btn.addEventListener("click", async (e) => {
     if(ammout == 0){
         alert("add item in cart for payment");
     }else{
+        const alluserCart = JSON.parse(localStorage.getItem("curretUserCart"));
+        alluserCart[currentUserEmail] = [];
+        localStorage.setItem("curretUserCart", JSON.stringify(alluserCart));
+        loadCartUI();
+        document.getElementById("total_ammount").innerText = 0;
  // create razorpay order
         
     fetch('https://api.razorpay.com/v1/orders', {
@@ -53,12 +58,7 @@ btn.addEventListener("click", async (e) => {
       })
       .catch(error => {
         console.error('Error creating order:', error);
-
-        const alluserCart = JSON.parse(localStorage.getItem("curretUserCart"));
-        alluserCart[currentUserEmail] = [];
-        localStorage.setItem("curretUserCart", JSON.stringify(alluserCart));
-        loadCartUI();
-        document.getElementById("total_ammount").innerText = 0;
+        
         window.location.href("https://nikhil-rawat02.github.io/shopping-project/cart/cart.html")
       });
     }
